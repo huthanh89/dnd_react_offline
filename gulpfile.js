@@ -123,9 +123,6 @@ gulp.task('compile-css', (cb) => {
         .pipe(less())
         .pipe(concat('style.css'));
 
-    // It is important to order the concat so our style will be at the moment 
-    // and will take into effect.
-
     merge(cssStream, lessStream)
         .pipe(order([
             "vendors.css",
@@ -172,10 +169,6 @@ gulp.task('browser', () => {
         uri: 'http://localhost:3002'
     }));
 });
-
-// Run Jest to test JavaScript files.
-
-gulp.task('test', run.default('npm test'))
 
 //-----------------------------------------------------------------------------//
 // Main tasks
