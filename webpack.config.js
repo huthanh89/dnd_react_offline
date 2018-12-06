@@ -2,19 +2,35 @@
 // Import
 //-----------------------------------------------------------------------------//
 
+const path    = require('path');
 const webpack = require('webpack');
 
 //-----------------------------------------------------------------------------//
 
 module.exports = {
 
-  entry: './src/js/index.js',
+  entry: [
+    './src/js/index.js'
+  ],
+
+  // TODO REMOVE - move to gulp file using development flag.
+  mode:    'development', 
+  devtool: 'inline-source-map',
+
+  // Tell webpack dev server where to serve files from.
+
+  devServer: {
+    hot:          true,
+    inline:       true,
+    contentBase: './dist'
+  },
 
   performance: { 
     hints: false 
   },
 
   output: {
+    path: path.resolve(__dirname, 'dist/js'),
     filename: 'bundle.js'
   },
 
@@ -26,9 +42,6 @@ module.exports = {
       './src/js'
     ]
   },
-
-  // Configure webpack modules to be able to read pug, babel, css etc,
-  // By providing the proper module loader.
 
   module: {
     rules: [
@@ -50,10 +63,6 @@ module.exports = {
         ]
       },
       {
-        test: /.pug?$/,
-        loader: 'pug-loader',
-      },
-      {
         test: /.jsx?$/,
         loader: 'babel-loader',
         exclude: /node_modules/,
@@ -69,8 +78,7 @@ module.exports = {
   },
   
   plugins: [
-    new webpack.AutomaticPrefetchPlugin(),
-    new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/)
+    new webpack.HotModuleReplacementPlugin()
   ]
 
 };

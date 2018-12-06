@@ -6,7 +6,6 @@ const _             = require ('lodash');
 const gulp          = require('gulp');
 const nodemon       = require('gulp-nodemon');
 const webpack       = require('webpack-stream');
-const livereload    = require('gulp-livereload');
 const webpackConfig = require('./webpack.config');
 const cleanCSS      = require('gulp-clean-css');
 const rename        = require('gulp-rename');
@@ -91,60 +90,46 @@ gulp.task('minify-img', () => {
     .pipe(gulp.dest('dist/asset'));
 });
 
-gulp.task('compile-js', (cb) => {
+gulp.task('compile-js', () => {
 
     let config = _.assignIn(webpackConfig, {
         mode: 'development'
     });
 
-    let reload = function(){
-        livereload.reload();
-        cb();
-    };
-
-    gulp.src(__filename)
+    return gulp.src(__filename)
         .pipe(webpack({
             config: config
         }))
-        .pipe(gulp.dest('dist/js')).on('end', reload);
+        .pipe(gulp.dest('dist/js'));
 });
 
-gulp.task('compile-css', (cb) => {
+gulp.task('compile-css', () => {
 
     let cssStream = gulp.src('src/css/*.css')
         .pipe(concat("vendors.css"));
-
-    let reload = function(){
-        livereload.reload();
-        cb();
-    };
 
     lessStream = gulp.src('src/css/**/*.less')
         .pipe(less())
         .pipe(concat('style.css'));
 
-    merge(cssStream, lessStream)
+    return merge(cssStream, lessStream)
         .pipe(order([
             "vendors.css",
             "style.css",
         ]))
         .pipe(concat('style.css'))
-        .pipe(gulp.dest('dist/css')).on('end', reload);
+        .pipe(gulp.dest('dist/css'));
 
 });
 
-gulp.task('compile-html', (cb) => {
-    let reload = function(){
-        livereload.reload();
-        cb();
-    };
+gulp.task('compile-html', () => {
 
-    gulp.src('src/html/**/*.pug')
+    return gulp.src('src/html/**/*.pug')
     .pipe(pug({
         doctype: 'html',
         pretty: true
     }))
-    .pipe(gulp.dest('dist')).on('end', reload);
+    .pipe(gulp.dest('dist'));
 });
 
 gulp.task('start-server', () => {
@@ -156,9 +141,6 @@ gulp.task('start-server', () => {
         env:  { 'NODE_ENV': 'development' }
     });
 
-    // Start listening with livereload.
-
-    livereload({ start: true });
 });
 
 // Open browser, using default browser.
@@ -204,8 +186,8 @@ gulp.task('default', [
 // Watch changes
 //-----------------------------------------------------------------------------//
 
-gulp.watch('src/js/**',   ['lint-js', 'compile-js']);
-gulp.watch('src/css/**',  ['compile-css']);
-gulp.watch('src/html/**', ['compile-html']);
+//gulp.watch('src/js/**',   ['lint-js', 'compile-js']);
+//gulp.watch('src/css/**',  ['compile-css']);
+//gulp.watch('src/html/**', ['compile-html']);
 
 //-----------------------------------------------------------------------------//

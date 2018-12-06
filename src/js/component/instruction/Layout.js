@@ -15,7 +15,7 @@ class Component extends React.Component {
         return (
             <div className="card">
                 <div className="card-body">
-                    <h5 className="card-title">Instruction</h5>
+                    <h5 className="card-title">Instructions</h5>
                     <Text/>
                     <Link to='/workspace'>
                         <button className="btn btn-success float-right">

@@ -2,22 +2,17 @@
 // Import
 //-----------------------------------------------------------------------------//
 
-const path        = require('path');
-const express     = require('express');
-const compression = require('compression')
-const app         = express();
-const config      = require('./server/config.js');
-const bodyParser  = require('body-parser');
+const path          = require('path');
+const express       = require('express');
+const compression   = require('compression')
+const app           = express();
+const config        = require('./server/config.js');
+const webpack       = require('webpack');
+const webpackConfig = require('./webpack.config');
 
 //-----------------------------------------------------------------------------//
 // Configure App
 //-----------------------------------------------------------------------------//
-
-app.use(bodyParser.urlencoded({
-    extended: true
-}));
-
-app.use(bodyParser.json());
 
 // Tell express to look for views in the following directory.
 
@@ -30,6 +25,16 @@ app.set('view engine', 'html');
 // Use compression to GZip files size.
 
 app.use(compression());
+
+//-----------------------------------------------------------------------------//
+// Handle routes.
+//-----------------------------------------------------------------------------//
+
+const compiler = webpack(webpackConfig);
+
+app.use(require("webpack-dev-middleware")(compiler, {
+    noInfo: true, publicPath: webpackConfig.output.publicPath
+}));
 
 //-----------------------------------------------------------------------------//
 // Handle routes.
