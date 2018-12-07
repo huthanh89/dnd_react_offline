@@ -30,17 +30,22 @@ npm install -g
 
 ### Command to build the project.
 
+```
 npm run build
-
+```
 ### Command to start development server before coding.
 
+```
 npm run start
+```
 
 Then open browser to http://localhost:8080
 
 ### Running the tests
 
+```
 npm run test
+```
 
 ## Deployment
 
