@@ -4,36 +4,38 @@
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
+### Opening the application in browser
+
+Open the application file in dist/index.html in any browser.
+
 ### Prerequisites
 
 Install Node version 10.14.1 LTS
 https://nodejs.org/en/
 
-### Installing
+## Installing Packages
 
-Install Node packages.
+### Install node packages.
 
 npm Install
 
-Install gulp globally.
+### Install Gulp globally.
 
 npm install -g
 
-## Running the tests
+## Development
 
-npm run test
-
-### Playing with application
-
-Open the application file in dist/index.html
-
-### Command to build project.
+### Command to build the project.
 
 npm run build
 
-### Command to start developement server before coding
+### Command to start development server before coding.
 
 npm run start
+
+### Running the tests
+
+npm run test
 
 ## Deployment
 
