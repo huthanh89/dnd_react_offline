@@ -33,6 +33,8 @@ npm run build
 
 npm run start
 
+Then open browser to http://localhost:8080
+
 ### Running the tests
 
 npm run test
