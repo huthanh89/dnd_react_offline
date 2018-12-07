@@ -13,7 +13,7 @@ module.exports = {
     './src/js/index.js'
   ],
 
-  // TODO REMOVE - move to gulp file using development flag.
+  // TODO: Move this to gulp file using development flag.
   mode:    'development', 
   devtool: 'inline-source-map',
 
@@ -30,7 +30,7 @@ module.exports = {
   },
 
   output: {
-    path: path.resolve(__dirname, 'dist/js'),
+    path:      path.resolve(__dirname, 'dist/js'),
     filename: 'bundle.js'
   },
 
@@ -51,6 +51,12 @@ module.exports = {
         use: 'ts-loader',
         exclude: /node_modules/
       },
+      
+      {
+        test: /\.pug?$/,
+        use: 'pug-loader',
+        exclude: /node_modules/
+      },
 
       {
         // When encountering .css files, use css-loader to interpret the file,
@@ -62,6 +68,7 @@ module.exports = {
           { loader: "css-loader" }
         ]
       },
+
       {
         test: /.jsx?$/,
         loader: 'babel-loader',
@@ -71,6 +78,9 @@ module.exports = {
             '@babel/react',
             '@babel/preset-typescript',
             '@babel/preset-flow'
+          ],
+          plugins: [
+            '@babel/plugin-syntax-flow'
           ]
         }
       }

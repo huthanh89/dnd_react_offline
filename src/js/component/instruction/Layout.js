@@ -15,8 +15,10 @@ class Component extends React.Component {
         return (
             <div className="card">
                 <div className="card-body">
-                    <h5 className="card-title">Instructions</h5>
-                    <Text/>
+                    <h5 className="card-title">Instruction</h5>
+                    <Text bar={42}/>
+
+
                     <Link to='/workspace'>
                         <button className="btn btn-success float-right">
                             <span> Go to Workspace </span>
@@ -27,6 +29,7 @@ class Component extends React.Component {
         );
     }
 }
+
 
 //-----------------------------------------------------------------------------//
 // Export
