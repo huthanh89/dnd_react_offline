@@ -24,7 +24,7 @@ npm Install
 ### Install Gulp globally.
 
 ```
-npm install -g
+npm install -g gulp
 ```
 ## Development
 
