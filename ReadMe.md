@@ -17,12 +17,15 @@ https://nodejs.org/en/
 
 ### Install node packages.
 
+```
 npm Install
+```
 
 ### Install Gulp globally.
 
+```
 npm install -g
-
+```
 ## Development
 
 ### Command to build the project.
