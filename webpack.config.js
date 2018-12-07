@@ -9,12 +9,18 @@ const webpack = require('webpack');
 
 module.exports = {
 
+  mode:    'development', 
+
   entry: {
     bundle: path.resolve(__dirname, 'src/js/index.js')
   },
 
-  // TODO: Move this to gulp file using development flag.
-  mode:    'development', 
+  output: {
+    publicPath: 'js',
+    path:        path.resolve(__dirname, 'dist/js'),
+    filename:   '[name].js'
+  },
+
   devtool: 'inline-source-map',
 
   // Tell webpack dev server where to serve files from.
@@ -28,13 +34,6 @@ module.exports = {
   performance: { 
     hints: false 
   },
-
-  output: {
-    publicPath: 'js',
-    path:        path.resolve(__dirname, 'dist/js'),
-    filename:   '[name].js'
-  },
-
   
   resolve: {
     

@@ -81,7 +81,6 @@
     "gulp-rename": "^1.4.0",
     "jest": "^23.6.0",
     "less-loader": "^4.1.0",
-    "mini-css-extract-plugin": "^0.4.5",
     "react-cosmos": "^4.6.4",
     "style-loader": "^0.23.1",
     "ts-loader": "^5.3.1",
