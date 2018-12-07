@@ -12,6 +12,8 @@ import   logger        from 'redux-logger';
 import { HashRouter as Router, Route } from 'react-router-dom';
 import { applyMiddleware, createStore   } from 'redux';
 
+import '../css/style.less';
+
 //-----------------------------------------------------------------------------//
 // Development configuration
 //-----------------------------------------------------------------------------//

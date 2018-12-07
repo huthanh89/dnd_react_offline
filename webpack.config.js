@@ -9,9 +9,9 @@ const webpack = require('webpack');
 
 module.exports = {
 
-  entry: [
-    './src/js/index.js'
-  ],
+  entry: {
+    bundle: path.resolve(__dirname, 'src/js/index.js')
+  },
 
   // TODO: Move this to gulp file using development flag.
   mode:    'development', 
@@ -30,13 +30,20 @@ module.exports = {
   },
 
   output: {
-    path:      path.resolve(__dirname, 'dist/js'),
-    filename: 'bundle.js'
+    publicPath: 'js',
+    path:        path.resolve(__dirname, 'dist/js'),
+    filename:   '[name].js'
   },
 
-  // Resolve directories to look at when importing modules.
-
+  
   resolve: {
+    
+    // Import modules without explicitly writing their extension.
+
+    extensions: [ '.tsx', '.ts', '.js' ],
+    
+    // Resolve directories to look at when importing modules.
+
     modules: [
       'node_modules', 
       './src/js'
@@ -45,6 +52,15 @@ module.exports = {
 
   module: {
     rules: [
+      
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: "eslint-loader",
+        options: {
+          quiet: true
+        }
+      },
 
       {
         test: /\.tsx?$/,
@@ -58,14 +74,27 @@ module.exports = {
         exclude: /node_modules/
       },
 
+      // compiles Less to CSS
+
+      {
+        test: /\.less?$/,
+        use: [{
+          loader: 'style-loader' // creates style nodes from JS strings
+        }, {
+          loader: 'css-loader' // translates CSS into CommonJS
+        }, {
+          loader: 'less-loader' // compiles Less to CSS
+        }]
+      },
+
       {
         // When encountering .css files, use css-loader to interpret the file,
         // and style-loader to place the css into the <style> tag.
 
         test: /.css?$/,
         use: [
-          { loader: "style-loader" },
-          { loader: "css-loader" }
+          'css-hot-loader',
+          'css-loader'
         ]
       },
 
@@ -77,10 +106,6 @@ module.exports = {
           presets: [
             '@babel/react',
             '@babel/preset-typescript',
-            '@babel/preset-flow'
-          ],
-          plugins: [
-            '@babel/plugin-syntax-flow'
           ]
         }
       }

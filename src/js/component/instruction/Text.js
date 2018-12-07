@@ -54,37 +54,10 @@ class Component extends React.Component {
     }
 }
 
-// @flow 
-
-type State = {
-    count: number,
-};
-
-// @flow 
-
-type Props = {
-    foo:  number,
-    bar?: string,
-};
-
-// @flow 
-
-class MyComponent extends React.Component<Props, State> {
-    render() {
-        return <div>
-            hello world
-            {this.props.bar}
-            {this.props.foo}
-        </div>;
-    }
-}
-
-
-
 //-----------------------------------------------------------------------------//
 // Export
 //-----------------------------------------------------------------------------//
 
-export default MyComponent;
+export default Component;
 
 //-----------------------------------------------------------------------------//

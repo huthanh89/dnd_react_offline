@@ -104,22 +104,9 @@ gulp.task('compile-js', () => {
 });
 
 gulp.task('compile-css', () => {
-
-    let cssStream = gulp.src('src/css/*.css')
-        .pipe(concat("vendors.css"));
-
-    lessStream = gulp.src('src/css/**/*.less')
-        .pipe(less())
-        .pipe(concat('style.css'));
-
-    return merge(cssStream, lessStream)
-        .pipe(order([
-            "vendors.css",
-            "style.css",
-        ]))
-        .pipe(concat('style.css'))
+    return gulp.src('src/css/vendor/*.css')
+        .pipe(concat("vendor.css"))
         .pipe(gulp.dest('dist/css'));
-
 });
 
 gulp.task('compile-html', () => {
@@ -132,23 +119,12 @@ gulp.task('compile-html', () => {
     .pipe(gulp.dest('dist'));
 });
 
-gulp.task('start-server', () => {
-
-    nodemon({
-        script: 'server.js',
-        ext:    'js html',
-        watch: ['server.js', 'server/'],
-        env:  { 'NODE_ENV': 'development' }
-    });
-
-});
-
-// Open browser, using default browser.
+// Open browser to localhost:8080, where webpack HMR DevServer is located.
 
 gulp.task('browser', () => {
     return gulp.src(__filename)
     .pipe(open({
-        uri: 'http://localhost:3002'
+        uri: 'http://localhost:8080'
     }));
 });
 
