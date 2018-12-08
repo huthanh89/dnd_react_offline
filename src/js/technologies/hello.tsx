@@ -8,13 +8,16 @@ import * as React from 'react';
 // Component
 //-----------------------------------------------------------------------------//
 
-class Component extends React.Component {
+interface PropsType {
+}
+
+class Component extends React.Component<PropsType, {}> {
   render() {
-      return (
-        <div >
-          Hello world
-        </div>
-      );
+    return (
+      <h2>
+        hello there from tsx123123
+      </h2>
+    )
   }
 }
 

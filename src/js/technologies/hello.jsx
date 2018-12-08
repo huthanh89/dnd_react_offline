@@ -12,7 +12,7 @@ class Component extends React.Component {
   render() {
       return (
         <div >
-          Hello world
+          Hello world from JSX 1234
         </div>
       );
   }

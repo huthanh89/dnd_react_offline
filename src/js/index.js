@@ -2,22 +2,21 @@
 // Import
 //-----------------------------------------------------------------------------//
 
-import   $             from 'jquery';
-import   React         from 'react';
-import { render }      from 'react-dom';
-import { Provider }    from 'react-redux';
-import   App           from './container/App.js';
-import   reducer       from './reducer/index.js';
-import   logger        from 'redux-logger';
+
+import   $          from 'jquery';
+import   React      from 'react';
+import { render }   from 'react-dom';
+import { Provider } from 'react-redux';
+import   App        from './container/App.js';
+import   reducer    from './reducer/index.js';
+import   logger     from 'redux-logger';
+import { hot }      from 'react-hot-loader';
 import { HashRouter as Router, Route } from 'react-router-dom';
 import { applyMiddleware, createStore   } from 'redux';
 
 import '../css/style.less';
 
-//-----------------------------------------------------------------------------//
-
-import TypeScript from './technologies/hello.tsx';
-import Babel      from './technologies/hello.jsx';
+//import Babel from './technologies/hello.jsx';
 
 //-----------------------------------------------------------------------------//
 // Development configuration
@@ -26,6 +25,12 @@ import Babel      from './technologies/hello.jsx';
 const ReactLogger = true;
 
 //-----------------------------------------------------------------------------//
+
+// Enable webpack's hot module reload for Application components
+
+const Application = hot(module)(App);
+
+// Initialize Redux Store and enable redux logger if needed.
 
 function initStore (){
   if(ReactLogger){
@@ -44,15 +49,13 @@ function initStore (){
 $( document ).ready(function() {
   render(
     <div>
-
-      <TypeScript/>
-      <Babel/>
+      <span>asdf</span>
 
       <Provider store={initStore()}>
         <Router>
           <Route 
             path="/" 
-            component={App} 
+            component={hot(module)(Application)} 
           />
         </Router>
       </Provider>

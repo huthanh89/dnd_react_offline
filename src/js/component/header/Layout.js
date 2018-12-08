@@ -3,7 +3,6 @@
 //-----------------------------------------------------------------------------//
 
 import styled   from 'styled-components';
-import Timer    from './Timer';
 import Navigate from './Navigate';
 import React    from 'react';
 
@@ -22,7 +21,6 @@ class Component extends React.Component {
     return (
       <div className="row">
         <Wrapper className="col-12">
-          <Timer/>
           <Navigate {...this.props}/>
         </Wrapper>
       </div>

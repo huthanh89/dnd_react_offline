@@ -8,7 +8,6 @@ import Instruction from './instruction/Layout.js';
 import Inventory   from '../container/inventory.js';
 import Workspace   from '../container/workspace.js';
 import { Route }   from "react-router-dom";
-import { hot }     from 'react-hot-loader';
 
 //-----------------------------------------------------------------------------//
 // Component
@@ -33,6 +32,6 @@ class App extends React.Component {
 // Export
 //-----------------------------------------------------------------------------//
 
-export default hot(module)(App)
+export default App
 
 //-----------------------------------------------------------------------------//
