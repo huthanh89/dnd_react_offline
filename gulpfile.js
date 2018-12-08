@@ -33,10 +33,14 @@ gulp.task('lint-js', () => {
     .pipe(eslint.failAfterError());
 });
 
+// Copy assets over to /dist.
+
 gulp.task('copy-webfonts', () => {
     return gulp.src('src/webfonts/*')
         .pipe(gulp.dest('dist/webfonts'));
 });
+
+// Minify javascript source files.
 
 gulp.task('minify-js', () => {
 
@@ -52,6 +56,8 @@ gulp.task('minify-js', () => {
         .pipe(gulp.dest('dist/js'));
 });
 
+// Minify css source files.
+
 gulp.task('minify-css', () => {
     return gulp.src('dist/css/*.css')
         .pipe(cleanCSS({
@@ -60,6 +66,8 @@ gulp.task('minify-css', () => {
         .pipe(gulp.dest('dist/css'));
 });
 
+// Minify html source files.
+
 gulp.task('minify-html', () => {
     return  gulp.src('dist/index.html')
         .pipe(htmlmin({ 
@@ -67,6 +75,8 @@ gulp.task('minify-html', () => {
         }))
         .pipe(gulp.dest('dist'));
 });
+
+// Minify all images from source directory.
 
 gulp.task('minify-img', () => {
     return  gulp.src('src/asset/image/*')
@@ -89,6 +99,8 @@ gulp.task('minify-img', () => {
     ]))
     .pipe(gulp.dest('dist/asset'));
 });
+
+// Use webpack to create a javascript bundle.
 
 gulp.task('compile-js', () => {
 

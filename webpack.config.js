@@ -9,7 +9,7 @@ const webpack = require('webpack');
 
 module.exports = {
 
-  mode:    'development', 
+  mode: 'development', 
 
   entry: {
     bundle: path.resolve(__dirname, 'src/js/index.js')
@@ -37,10 +37,6 @@ module.exports = {
   
   resolve: {
     
-    // Import modules without explicitly writing their extension.
-
-    extensions: [ '.tsx', '.ts', '.js' ],
-    
     // Resolve directories to look at when importing modules.
 
     modules: [
@@ -63,8 +59,9 @@ module.exports = {
 
       {
         test: /\.tsx?$/,
-        use: 'ts-loader',
-        exclude: /node_modules/
+        exclude: /node_modules/,
+        loader: 'ts-loader'
+
       },
       
       {

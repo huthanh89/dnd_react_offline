@@ -15,6 +15,11 @@ import { applyMiddleware, createStore   } from 'redux';
 import '../css/style.less';
 
 //-----------------------------------------------------------------------------//
+
+import TypeScript from './technologies/hello.tsx';
+import Babel      from './technologies/hello.jsx';
+
+//-----------------------------------------------------------------------------//
 // Development configuration
 //-----------------------------------------------------------------------------//
 
@@ -38,15 +43,22 @@ function initStore (){
 
 $( document ).ready(function() {
   render(
-    <Provider store={initStore()}>
-      <Router>
-        <Route 
-          path="/" 
-          component={App} 
-        />
-      </Router>
-    </Provider>,
-    $('#root')[0]
+    <div>
+
+      <TypeScript/>
+      <Babel/>
+
+      <Provider store={initStore()}>
+        <Router>
+          <Route 
+            path="/" 
+            component={App} 
+          />
+        </Router>
+      </Provider>
+
+    </div>
+    , $('#root')[0]
   );
 });
 

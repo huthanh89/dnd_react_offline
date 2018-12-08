@@ -23,6 +23,7 @@ class App extends React.Component {
         <Route exact path="/instruction" component={Instruction} />
         <Route exact path="/inventory"   component={Inventory} />
         <Route exact path="/workspace"   component={Workspace} />
+        <Route exact path="/technologies"   component={Workspace} />
       </div>
     );
   }
