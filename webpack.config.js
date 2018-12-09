@@ -23,7 +23,7 @@ module.exports = {
 
   devtool: 'inline-source-map',
 
-  // Tell webpack dev server where to serve files from.
+  // Options for webpack dev server for hot module reloading.
 
   devServer: {
     hot:          true,
@@ -36,6 +36,8 @@ module.exports = {
   },
   
   resolve: {
+
+    // Import modules without using the following extensions.
 
     extensions: ['.js', '.ts', '.tsx', '.jsx'],
 
@@ -64,8 +66,7 @@ module.exports = {
       {
         test: /\.tsx?$/,
         exclude: /node_modules/,
-        loader: 'ts-loader'
-
+        loader: 'awesome-typescript-loader'
       },
       
       {
