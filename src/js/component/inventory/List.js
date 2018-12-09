@@ -2,9 +2,9 @@
 // Import
 //-----------------------------------------------------------------------------//
 
-import Components from 'lib/components.js';
-import Item       from './Item.js';
-import React      from 'react';
+import Components from 'lib/components';
+import Item       from './Item';
+import * as React from 'react';
 
 //-----------------------------------------------------------------------------//
 // Component

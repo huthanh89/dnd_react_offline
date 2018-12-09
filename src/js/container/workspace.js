@@ -3,7 +3,7 @@
 //-----------------------------------------------------------------------------//
 
 import   _         from 'lodash';
-import   Component from '../component/workspace/Layout.js';
+import   Component from '../component/workspace/Layout';
 import { connect } from 'react-redux';
 
 //-----------------------------------------------------------------------------//

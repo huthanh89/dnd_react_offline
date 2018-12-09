@@ -2,8 +2,8 @@
 // Import
 //-----------------------------------------------------------------------------//
 
-import CPU    from './CPU.js';
-import Ram    from './Ram.js';
+import CPU    from './CPU';
+import Ram    from './Ram';
 import React  from 'react';
 import styled from 'styled-components';
 

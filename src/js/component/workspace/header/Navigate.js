@@ -2,7 +2,7 @@
 // Import
 //-----------------------------------------------------------------------------//
 
-import Inventory from './Inventory.js';
+import Inventory from './Inventory';
 import React     from 'react';
 
 //-----------------------------------------------------------------------------//

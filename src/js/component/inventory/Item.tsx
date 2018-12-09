@@ -2,8 +2,8 @@
 // Import
 //-----------------------------------------------------------------------------//
 
-import React  from 'react';
-import styled from 'styled-components';
+import      styled from 'styled-components';
+import * as React  from 'react';
 
 //-----------------------------------------------------------------------------//
 
@@ -19,14 +19,22 @@ const BtnWrapper = styled.div`
   top:      25px;
 `;
 
+type Props = {
+  id:         number,
+  name:       string,
+  type:       string,
+  img:        string,
+  selectItem: Function
+}
+
 //-----------------------------------------------------------------------------//
 // Component
 //-----------------------------------------------------------------------------//
 
-class Component extends React.Component {
+class Component extends React.Component<Props> {
 
-  constructor(){
-    super();
+  constructor(props: Props){
+    super(props);
     this.select = this.select.bind(this);
   }
 

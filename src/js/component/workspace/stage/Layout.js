@@ -4,9 +4,9 @@
 
 import _          from 'lodash';
 import styled     from 'styled-components';
-import Connector  from './Connector.js';
-import Item       from './Item.js';
-import Components from 'lib/components.js';
+import Connector  from './Connector';
+import Item       from './Item';
+import Components from 'lib/components';
 import React      from 'react';
 
 //-----------------------------------------------------------------------------//

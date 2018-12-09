@@ -3,7 +3,7 @@
 //-----------------------------------------------------------------------------//
 
 import   _         from 'lodash';
-import   Component from '../component/app.js';
+import   Component from '../component/app';
 import { connect } from 'react-redux';
 
 //-----------------------------------------------------------------------------//

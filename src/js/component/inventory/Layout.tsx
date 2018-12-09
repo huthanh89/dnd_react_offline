@@ -2,32 +2,45 @@
 // Import
 //-----------------------------------------------------------------------------//
 
-import Text     from './Text.js';
-import React    from 'react';
-import { Link } from 'react-router-dom';
+import      Filter from './Filter';
+import      List   from './List';
+import * as React  from 'react';
+
+//-----------------------------------------------------------------------------//
+
+type Props = {
+    history: Array<string>,
+    actionSelectComponent: Function
+}
 
 //-----------------------------------------------------------------------------//
 // Component
 //-----------------------------------------------------------------------------//
 
-class Component extends React.Component {
+class Component extends React.Component<Props> {
+
+    constructor(props: Props){
+        super(props);
+        this.selectItem = this.selectItem.bind(this);
+    }
+
+    selectItem(id: string){
+        this.props.actionSelectComponent(id);
+        this.props.history.push('/workspace');
+    }
+
     render() {
         return (
             <div className="card">
                 <div className="card-body">
-                    <h5 className="card-title">Instruction</h5>
-                    <Text/>
-                    <Link to='/workspace'>
-                        <button className="btn btn-success float-right">
-                            <span> Go to Workspace </span>
-                        </button>
-                    </Link>
+                    <h5 className="card-title">Inventory</h5>
+                    <Filter/>
+                    <List selectItem={this.selectItem}/>
                 </div>
             </div>
         );
     }
 }
-
 
 //-----------------------------------------------------------------------------//
 // Export

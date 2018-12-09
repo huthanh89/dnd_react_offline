@@ -2,9 +2,9 @@
 // Import
 //-----------------------------------------------------------------------------//
 
-import Inventory from './Inventory.js';
-import Navigate  from './Navigate.js';
-import Position  from './Position.js';
+import Inventory from './Inventory';
+import Navigate  from './Navigate';
+import Position  from './Position';
 import React     from 'react';
 
 //-----------------------------------------------------------------------------//

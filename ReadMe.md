@@ -44,7 +44,7 @@ npm run test
 
 ## Deployment
 
-Run the following command create a production build.
+Run the following command create a production build. (WIP)
 
 ```
 gulp production
