@@ -21,7 +21,7 @@ https://nodejs.org/en/
 npm install
 ```
 
-## Development
+## Developing
 
 ### Command to build the project.
 
@@ -50,7 +50,7 @@ To run the tests.
 npm run test
 ```
 
-## Deployment
+## Deploying
 
 Run the following command create a production build. (WIP)
 
