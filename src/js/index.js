@@ -16,9 +16,6 @@ import { applyMiddleware, createStore   } from 'redux';
 
 import '../css/style.less';
 
-//import TypeScript from './technologies/hello.tsx';
-//import Babel      from './technologies/hello.jsx';
-
 //-----------------------------------------------------------------------------//
 // Development configuration
 //-----------------------------------------------------------------------------//
@@ -27,7 +24,7 @@ const ReactLogger = true;
 
 //-----------------------------------------------------------------------------//
 
-// Enable webpack's hot module reload for Application components
+// Enable webpack's hot module reload on application components.
 
 const Application = hot(module)(App);
 
