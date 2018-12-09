@@ -2,16 +2,37 @@
 // Import
 //-----------------------------------------------------------------------------//
 
-import Header   from './header/Layout';
-import Position from './position/Layout';
-import Stage    from './stage/Layout';
-import React    from 'react';
+import      Header   from './header/Layout';
+import      Position from './position/Layout';
+import      Stage    from './stage/Layout';
+import * as React    from 'react';
+
+//-----------------------------------------------------------------------------//
+
+type Props = {
+  id:                        string,
+  componentID:               string,
+  connector:                 string,
+  connected:                 boolean,
+  img:                       string,
+  type:                      string,
+  cpu:                       boolean,
+  ram:                       boolean,
+  position:                  string,
+  history:                   Array<string>,
+  dragItem:                  string,
+  actionDisconnectComponent: Function,
+  actionDragComponent:       Function,
+  actionConnectComponent:    Function,
+  actionChangePosition:      Function
+  
+}
 
 //-----------------------------------------------------------------------------//
 // Component
 //-----------------------------------------------------------------------------//
 
-class Component extends React.Component {
+class Component extends React.Component<Props> {
   render() {
     return (
       <div className="card">

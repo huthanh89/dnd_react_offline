@@ -2,72 +2,79 @@
 // Import
 //-----------------------------------------------------------------------------//
 
-import React  from 'react';
-import styled from 'styled-components';
+import      styled from 'styled-components';
+import * as React  from 'react';
 import 'drag-drop-touch';
 
 //-----------------------------------------------------------------------------//
 
 const Hotspot = styled.div`
-  background: rgba(255, 0, 0, 0.699);
-  width:      20%;
-  height:     90px;
-  position:   absolute;
-  left: 		  46%;
-  top:  		  110px;
-  border: 	  dashed rgb(237, 238, 168) 3px;
+  background: rgba(255, 0, 0, 0.685);
+  width:        3%;
+  height:   	  260px;
+  position: 	  absolute;
+  left:     	  74%;
+  top:      	  60px;
+  border:   	  dashed rgb(237, 238, 168) 3px;
 `;
+
+type Props = {
+  dragItem:               string,
+  connected:              boolean,
+  actionDragComponent:    Function,
+  actionConnectComponent: Function
+}
 
 //-----------------------------------------------------------------------------//
 // Component
 //-----------------------------------------------------------------------------//
 
-class Component extends React.Component {
+class Component extends React.Component<Props> {
   
-  constructor(){
-    super();
+  constructor(props: Props){
+    super(props);
     this.dragDrop  = this.dragDrop.bind(this);
     this.dragStart = this.dragStart.bind(this);
     this.dragEnd   = this.dragEnd.bind(this);
   }
 
-  dragStart(event){
-    this.props.actionDragComponent('cpu');
+  dragStart(){
+    this.props.actionDragComponent('ram');
   }
   
-  dragEnd(event){
+  dragEnd(){
     this.props.actionDragComponent(null);
   }
 
-  dragOver(event){
+  dragOver(event: any){
     event.preventDefault();
   }
   
-  dragDrop(event){
+  dragDrop(event: any){
     event.preventDefault();
-    if(this.props.dragItem==='cpu'){
-      this.props.actionConnectComponent('cpu');
+    if(this.props.dragItem==='ram'){
+      this.props.actionConnectComponent('ram');
     }
   }
 
   getView(){
     if(this.props.connected){
       return(
-        <img src='asset/cpu_connected.png' 
-          draggable="true" onDragStart={this.dragStart} onDragEnd={this.dragEnd}
-          style={{
-            position: 'relative',
-            width:    '100px',
-            height:   '100px',
-            left:     '45%',
-            top:      '80px'
-          }}
+        <img src='asset/ram_connected.png' 
+        draggable={true} onDragStart={this.dragStart}
+        style={{
+          position: 'absolute',
+          width:    '3%',
+          height:   '260px',
+          left:     '74%',
+          top:      '60px'
+        }}
         />
       );
     }
     else{
       return(
-        <Hotspot onDrop={this.dragDrop} onDragOver={this.dragOver} onDragLeave={this.dragLeave}/>
+        <Hotspot onDrop={this.dragDrop} onDragOver={this.dragOver}/>
       );
     }
   }
