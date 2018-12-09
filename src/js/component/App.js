@@ -10,16 +10,10 @@ import { Route }   from "react-router-dom";
 import * as React  from 'react';
 
 //-----------------------------------------------------------------------------//
-
-type Props = {
-  history: any
-}
-
-//-----------------------------------------------------------------------------//
 // Component
 //-----------------------------------------------------------------------------//
 
-class App extends React.Component<Props> {
+class App extends React.Component {
   render(){
     return (
       <div>
