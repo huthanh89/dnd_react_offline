@@ -104,6 +104,19 @@ module.exports = {
         ]
       },
 
+/*
+      {
+        test: /\.ts$/,
+        enforce: 'pre',
+        use: [
+            {
+                loader: 'tslint-loader',
+                options: { }
+            }
+        ]
+      },
+*/
+
       {
         test: /.jsx?$/,
         loader: 'babel-loader',

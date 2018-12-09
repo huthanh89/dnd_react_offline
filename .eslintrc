@@ -55,6 +55,6 @@
         "yoda": 1,
         "vars-on-top": 1,
         "semi": 1,
-        "no-unused-expressions": 1
+        "no-unused-expressions": 0
     }
 }
