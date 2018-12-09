@@ -8,15 +8,6 @@ import * as _ from 'lodash';
 // Model
 //-----------------------------------------------------------------------------//
 
-interface stateObject {
-  cpu:          boolean,
-  ram:          boolean,
-  powersupply:  boolean,
-  componentID:  string,
-  dragItem:     string,
-  position:     string
-}
-
 let initialState: any = {
     cpu:          false,
     ram:          false,
