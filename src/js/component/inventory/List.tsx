@@ -7,14 +7,20 @@ import Item       from './Item';
 import * as React from 'react';
 
 //-----------------------------------------------------------------------------//
+
+type Props = {
+    selectItem: Function
+}
+
+//-----------------------------------------------------------------------------//
 // Component
 //-----------------------------------------------------------------------------//
 
-class Component extends React.Component {
+class Component extends React.Component<Props> {
     render() {
         return (
             <div>
-                {Components.map((item, index)=><Item 
+                {Components.map((item:any)=><Item 
                     {...item} 
                     key={item.id}
                     selectItem={this.props.selectItem}
