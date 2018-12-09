@@ -56,11 +56,11 @@ module.exports = {
       // Lint javascript files.
 
       {
-        test: /\.js$/,
+        test: /\.js?$/,
         exclude: /node_modules/,
         loader: "eslint-loader",
         options: {
-          quiet: true
+          quiet: false
         }
       },
 
