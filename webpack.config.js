@@ -36,7 +36,9 @@ module.exports = {
   },
   
   resolve: {
-    
+
+    extensions: ['.js', '.ts', '.tsx', '.jsx'],
+
     // Resolve directories to look at when importing modules.
 
     modules: [

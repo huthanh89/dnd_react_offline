@@ -21,11 +21,6 @@ https://nodejs.org/en/
 npm Install
 ```
 
-### Install Gulp globally.
-
-```
-npm install -g gulp
-```
 ## Development
 
 ### Command to build the project.

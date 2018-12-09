@@ -3,10 +3,10 @@
 //-----------------------------------------------------------------------------//
 
 import React       from 'react';
-import Header      from './Header/Layout.js';
-import Instruction from './instruction/Layout.js';
-import Inventory   from '../container/inventory.js';
-import Workspace   from '../container/workspace.js';
+import Header      from './Header/Layout';
+import Instruction from './instruction/Layout';
+import Inventory   from '../container/inventory';
+import Workspace   from '../container/workspace';
 import { Route }   from "react-router-dom";
 
 //-----------------------------------------------------------------------------//

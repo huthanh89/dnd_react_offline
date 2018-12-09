@@ -5,9 +5,7 @@
 const _        = require ('lodash');
 const gulp     = require('gulp');
 const cleanCSS = require('gulp-clean-css');
-const rename   = require('gulp-rename');
 const pug      = require('gulp-pug');
-const less     = require('gulp-less');
 const htmlmin  = require('gulp-htmlmin');
 const imagemin = require('gulp-imagemin');
 const concat   = require('gulp-concat');
@@ -88,7 +86,7 @@ gulp.task('compile-html', () => {
 //-----------------------------------------------------------------------------//
 
 // Production build.
-// Minify files and move asset files to /dist folder.
+// Minify files and move asset files to /dist directory.
 
 gulp.task('production', [
     'compile-html',
