@@ -16,7 +16,8 @@ import { applyMiddleware, createStore   } from 'redux';
 
 import '../css/style.less';
 
-//import Babel from './technologies/hello.jsx';
+//import TypeScript from './technologies/hello.tsx';
+//import Babel      from './technologies/hello.jsx';
 
 //-----------------------------------------------------------------------------//
 // Development configuration
@@ -48,19 +49,14 @@ function initStore (){
 
 $( document ).ready(function() {
   render(
-    <div>
-      <span>asdf</span>
-
-      <Provider store={initStore()}>
-        <Router>
-          <Route 
-            path="/" 
-            component={hot(module)(Application)} 
-          />
-        </Router>
-      </Provider>
-
-    </div>
+    <Provider store={initStore()}>
+      <Router>
+        <Route 
+          path="/" 
+          component={hot(module)(Application)} 
+        />
+      </Router>
+    </Provider>
     , $('#root')[0]
   );
 });

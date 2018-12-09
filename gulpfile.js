@@ -2,36 +2,19 @@
 // Import
 //-----------------------------------------------------------------------------//
 
-const _             = require ('lodash');
-const gulp          = require('gulp');
-const nodemon       = require('gulp-nodemon');
-const webpack       = require('webpack-stream');
-const webpackConfig = require('./webpack.config');
-const cleanCSS      = require('gulp-clean-css');
-const rename        = require('gulp-rename');
-const pug           = require('gulp-pug');
-const less          = require('gulp-less');
-const htmlmin       = require('gulp-htmlmin');
-const imagemin      = require('gulp-imagemin');
-const open          = require('gulp-open');
-const concat        = require('gulp-concat');
-const merge         = require('merge-stream');
-const order         = require("gulp-order");
-const eslint        = require('gulp-eslint');
-const run           = require('gulp-run-command');
+const _        = require ('lodash');
+const gulp     = require('gulp');
+const cleanCSS = require('gulp-clean-css');
+const rename   = require('gulp-rename');
+const pug      = require('gulp-pug');
+const less     = require('gulp-less');
+const htmlmin  = require('gulp-htmlmin');
+const imagemin = require('gulp-imagemin');
+const concat   = require('gulp-concat');
 
 //-----------------------------------------------------------------------------//
 // Tasks
 //-----------------------------------------------------------------------------//
-
-// Lint JavaScript files.
-
-gulp.task('lint-js', () => {
-    return gulp.src('./src/js/**/*.js')
-    .pipe(eslint())
-    .pipe(eslint.format())
-    .pipe(eslint.failAfterError());
-});
 
 // Copy assets over to /dist.
 
@@ -40,20 +23,15 @@ gulp.task('copy-webfonts', () => {
         .pipe(gulp.dest('dist/webfonts'));
 });
 
-// Minify javascript source files.
 
-gulp.task('minify-js', () => {
+// Minify html source files.
 
-    let config = _.assignIn(webpackConfig, {
-        mode: 'production'
-    });
-
-    return gulp.src(__filename)
-        .pipe(webpack({
-            config: config
-        }))
-        .pipe(rename('bundle.js'))
-        .pipe(gulp.dest('dist/js'));
+gulp.task('minify-html', () => {
+    return  gulp.src('dist/index.html')
+    .pipe(htmlmin({ 
+        collapseWhitespace: true 
+    }))
+    .pipe(gulp.dest('dist'));
 });
 
 // Minify css source files.
@@ -64,16 +42,6 @@ gulp.task('minify-css', () => {
             compatibility: 'ie8'
         }))
         .pipe(gulp.dest('dist/css'));
-});
-
-// Minify html source files.
-
-gulp.task('minify-html', () => {
-    return  gulp.src('dist/index.html')
-        .pipe(htmlmin({ 
-            collapseWhitespace: true 
-        }))
-        .pipe(gulp.dest('dist'));
 });
 
 // Minify all images from source directory.
@@ -100,21 +68,6 @@ gulp.task('minify-img', () => {
     .pipe(gulp.dest('dist/asset'));
 });
 
-// Use webpack to create a javascript bundle.
-
-gulp.task('compile-js', () => {
-
-    let config = _.assignIn(webpackConfig, {
-        mode: 'development'
-    });
-
-    return gulp.src(__filename)
-        .pipe(webpack({
-            config: config
-        }))
-        .pipe(gulp.dest('dist/js'));
-});
-
 gulp.task('compile-css', () => {
     return gulp.src('src/css/vendor/*.css')
         .pipe(concat("vendor.css"))
@@ -122,7 +75,6 @@ gulp.task('compile-css', () => {
 });
 
 gulp.task('compile-html', () => {
-
     return gulp.src('src/html/**/*.pug')
     .pipe(pug({
         doctype: 'html',
@@ -131,51 +83,20 @@ gulp.task('compile-html', () => {
     .pipe(gulp.dest('dist'));
 });
 
-// Open browser to localhost:8080, where webpack HMR DevServer is located.
-
-gulp.task('browser', () => {
-    return gulp.src(__filename)
-    .pipe(open({
-        uri: 'http://localhost:8080'
-    }));
-});
-
 //-----------------------------------------------------------------------------//
 // Main tasks
 //-----------------------------------------------------------------------------//
-
-gulp.task('asset', [
-    'minify-img',
-    'copy-webfonts'
-]);
 
 // Production build.
 // Minify files and move asset files to /dist folder.
 
 gulp.task('production', [
-    'minify-js', 
+    'compile-html',
+    'compile-css', 
     'minify-css',
     'minify-html',
+    'copy-webfonts',
     'minify-img'
 ]);
-
-// Default task. Run command: "gulp" to start development environment.
-
-gulp.task('default', [
-    'lint-js',
-    'compile-js', 
-    'compile-css', 
-    'compile-html', 
-    'start-server',
-    'browser'
-]);
-
-//-----------------------------------------------------------------------------//
-// Watch changes
-//-----------------------------------------------------------------------------//
-
-//gulp.watch('src/js/**',   ['lint-js', 'compile-js']);
-//gulp.watch('src/css/**',  ['compile-css']);
-//gulp.watch('src/html/**', ['compile-html']);
 
 //-----------------------------------------------------------------------------//
