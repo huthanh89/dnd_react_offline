@@ -4,10 +4,6 @@
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-### Opening the application in browser
-
-Open the application file in dist/index.html in any browser.
-
 ### Prerequisites
 
 Install Node version 10.14.1 LTS
