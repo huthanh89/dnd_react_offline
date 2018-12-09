@@ -4,6 +4,7 @@
 
 import      styled from 'styled-components';
 import * as React  from 'react';
+import { css } from 'glamor';
 
 //-----------------------------------------------------------------------------//
 
@@ -11,6 +12,15 @@ const Wrapper = styled.div`
   width:      100%;
   min-height: 500px;
 `;
+
+let rule = css({
+  position: 'absolute',
+  width:    '50%',
+  maxWidth: '600px',
+  height:   '500px',
+  left:     '25%',
+  top:      '50px'
+})
 
 //-----------------------------------------------------------------------------//
 // Component
@@ -20,16 +30,7 @@ class Component extends React.Component {
   render() {
     return (
       <Wrapper>
-        <img src='asset/back.png' 
-            style={{
-            position: 'absolute',
-            width:    '50%',
-            maxWidth: '600px',
-            height:   '500px',
-            left:     '25%',
-            top:      '50px'
-          }}
-        />
+        <img src='asset/back.png' {...rule}/>
       </Wrapper>
     );
   }
