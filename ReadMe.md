@@ -38,6 +38,14 @@ Then open browser to http://localhost:8080
 
 ### Running the tests
 
+If Jest in not already install globally.
+
+```
+npm install - g jest
+```
+
+To run tests.
+
 ```
 npm run test
 ```

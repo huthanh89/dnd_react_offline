@@ -10,33 +10,33 @@ import { connect } from 'react-redux';
 
 // Return which state properties to be assigned as props.
 
-function mapStateToProps(state: any) {
+function mapStateToProps(state) {
     return _.clone(state);
 }
 
 // Map dispatch actions to be available to the component.
 
-function mapDispatchToProps(dispatch: Function) {
+function mapDispatchToProps(dispatch) {
     return {
-        actionChangePosition: function (position: Number){
+        actionChangePosition: function (position){
             return dispatch({
                 type:    'CHANGE_POSITION',
                 position: position
             });
         },
-        actionConnectComponent: function (componentType: String){
+        actionConnectComponent: function (componentType){
             return dispatch({
                 type:         'CONNECT_COMPONENT',
                 componentType: componentType
             });
         },
-        actionDisconnectComponent: function (componentType : String){
+        actionDisconnectComponent: function (componentType){
             return dispatch({
                 type:         'DiSCONNECT_COMPONENT',
                 componentType: componentType
             });
         },
-        actionDragComponent: function (component: String){
+        actionDragComponent: function (component){
             return dispatch({
                 type:     'DRAG_COMPONENT',
                 component: component

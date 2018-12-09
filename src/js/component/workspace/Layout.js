@@ -2,9 +2,9 @@
 // Import
 //-----------------------------------------------------------------------------//
 
-import Header   from './header/Layout.js';
-import Position from './position/Layout.js';
-import Stage    from './stage/Layout.js';
+import Header   from './header/Layout';
+import Position from './position/Layout';
+import Stage    from './stage/Layout';
 import React    from 'react';
 
 //-----------------------------------------------------------------------------//
