@@ -26,7 +26,7 @@ class Component extends React.Component<Props> {
 
   redirect(path: string){
     let pathname = `/${path}`;
-    if(this.props.history.location.pathname === path){
+    if(this.props.history.location.pathname != pathname){
       this.props.history.push(pathname);
     }
   }
