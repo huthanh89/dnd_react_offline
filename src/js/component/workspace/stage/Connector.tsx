@@ -43,11 +43,11 @@ class Component extends React.Component<Props> {
     this.dragEnd   = this.dragEnd.bind(this);
   }
 
-  dragStart(event: any){
+  dragStart(){
     this.props.actionDragComponent(this.props.type);
   }
   
-  dragEnd(event: any){
+  dragEnd(){
     this.props.actionDragComponent(null);
   }
 

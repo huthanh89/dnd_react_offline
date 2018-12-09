@@ -13,7 +13,8 @@ const Wrapper = styled.div`
 `;
 
 type Props = {
-  history: Array<string>
+  history: Array<string>,
+  match:   any
 }
 
 //-----------------------------------------------------------------------------//
