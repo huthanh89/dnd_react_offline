@@ -18,7 +18,7 @@ https://nodejs.org/en/
 ### Install node packages.
 
 ```
-npm Install
+npm install
 ```
 
 ## Development
@@ -28,23 +28,23 @@ npm Install
 ```
 npm run build
 ```
-### Command to start development server before coding.
+### Start development server before coding.
 
 ```
 npm run start
 ```
 
-Then open browser to http://localhost:8080
+Open browser to http://localhost:8080
 
-### Running the tests
+## Testing
 
-If Jest in not already install globally.
+If Jest in not already installed globally, then install it.
 
 ```
 npm install - g jest
 ```
 
-To run tests.
+To run the tests.
 
 ```
 npm run test
