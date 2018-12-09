@@ -2,7 +2,6 @@
 // Import
 //-----------------------------------------------------------------------------//
 
-const _        = require ('lodash');
 const gulp     = require('gulp');
 const cleanCSS = require('gulp-clean-css');
 const pug      = require('gulp-pug');
@@ -20,7 +19,6 @@ gulp.task('copy-webfonts', () => {
     return gulp.src('src/webfonts/*')
         .pipe(gulp.dest('dist/webfonts'));
 });
-
 
 // Minify html source files.
 
@@ -66,11 +64,15 @@ gulp.task('minify-img', () => {
     .pipe(gulp.dest('dist/asset'));
 });
 
+// Concat all vendor files to one single css file.
+
 gulp.task('compile-css', () => {
     return gulp.src('src/css/vendor/*.css')
         .pipe(concat("vendor.css"))
         .pipe(gulp.dest('dist/css'));
 });
+
+// Compile any pug files to regular html.
 
 gulp.task('compile-html', () => {
     return gulp.src('src/html/**/*.pug')
