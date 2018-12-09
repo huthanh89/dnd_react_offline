@@ -26,7 +26,7 @@ module.exports = {
   // Options for webpack dev server for hot module reloading.
 
   devServer: {
-    open:         false,
+    open:         true,
     hot:          true,
     inline:       true,
     contentBase: './dist'
