@@ -2,16 +2,20 @@
 // Import
 //-----------------------------------------------------------------------------//
 
-import React from 'react';
+import * as React from 'react';
+//-----------------------------------------------------------------------------//
 
+type Props = {
+  actionChangePosition: Function
+}
 //-----------------------------------------------------------------------------//
 // Component
 //-----------------------------------------------------------------------------//
 
-class Component extends React.Component {
+class Component extends React.Component<Props> {
 
-  constructor(){
-    super();
+  constructor(props: Props){
+    super(props);
     this.clickedFront       = this.clickedFront.bind(this);
     this.clickedBack        = this.clickedBack.bind(this);
     this.clickedMotherboard = this.clickedMotherboard.bind(this);

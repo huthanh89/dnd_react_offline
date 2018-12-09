@@ -2,25 +2,33 @@
 // Import
 //-----------------------------------------------------------------------------//
 
-import React from 'react';
+import * as React from 'react';
+
+//-----------------------------------------------------------------------------//
+
+type Props = {
+  history: Array<string>,
+  dragItem: string,
+  actionDisconnectComponent: Function
+}
 
 //-----------------------------------------------------------------------------//
 // Component
 //-----------------------------------------------------------------------------//
 
-class Component extends React.Component {
+class Component extends React.Component<Props> {
 
-  constructor(){
-    super();
+  constructor(props: Props){
+    super(props);
     this.clicked  = this.clicked.bind(this);
     this.dragDrop = this.dragDrop.bind(this);
   }
   
-  dragOver(event){
+  dragOver(event: any){
     event.preventDefault();
   }
   
-  dragDrop(event){
+  dragDrop(event: any){
     event.preventDefault();
     this.props.actionDisconnectComponent(this.props.dragItem);
   }

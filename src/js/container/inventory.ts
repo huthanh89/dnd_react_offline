@@ -2,22 +2,28 @@
 // Import
 //-----------------------------------------------------------------------------//
 
-import   _         from 'lodash';
-import   Component from '../component/app';
+import  * as _     from 'lodash';
+import   Component from '../component/inventory/Layout';
 import { connect } from 'react-redux';
 
 //-----------------------------------------------------------------------------//
 
 // Return which state properties to be assigned as props.
 
-function mapStateToProps(state) {
+function mapStateToProps(state: any) {
     return _.clone(state);
 }
 
 // Map dispatch actions to be available to the component.
 
-function mapDispatchToProps(dispatch) {
+function mapDispatchToProps(dispatch: Function) {
     return {
+        actionSelectComponent: function (componentID: string){
+            return dispatch({
+                type:       'SELECT_COMPONENT',
+                componentID: componentID
+            });
+        }
     };
 }
 

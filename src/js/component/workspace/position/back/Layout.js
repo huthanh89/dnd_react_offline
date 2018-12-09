@@ -2,8 +2,8 @@
 // Import
 //-----------------------------------------------------------------------------//
 
-import React  from 'react';
-import styled from 'styled-components';
+import      styled from 'styled-components';
+import * as React  from 'react';
 
 //-----------------------------------------------------------------------------//
 
@@ -21,7 +21,7 @@ class Component extends React.Component {
     return (
       <Wrapper>
         <img src='asset/back.png' 
-          style={{
+            style={{
             position: 'absolute',
             width:    '50%',
             maxWidth: '600px',
