@@ -7,8 +7,7 @@ import * as React from 'react';
 //-----------------------------------------------------------------------------//
 
 type Props = {
-  history: Array<string>,
-  match:   any
+  history: any
 }
 
 //-----------------------------------------------------------------------------//
@@ -19,12 +18,17 @@ class Component extends React.Component<Props> {
 
   constructor(props: Props){
     super(props);
-    this.redirect = this.redirect.bind(this);
+    this.redirect    = this.redirect.bind(this);
+    this.instruction = this.instruction.bind(this);
+    this.inventory   = this.inventory.bind(this);
+    this.workspace   = this.workspace.bind(this);
   }
 
   redirect(path: string){
-    if(this.props.match.location.pathname !== path)
-    this.props.history.push(`/${path}`);
+    let pathname = `/${path}`;
+    if(this.props.history.location.pathname === path){
+      this.props.history.push(pathname);
+    }
   }
 
   instruction(){

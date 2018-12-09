@@ -2,28 +2,35 @@
 // Import
 //-----------------------------------------------------------------------------//
 
-import _ from 'lodash';
+import * as _ from 'lodash';
 
 //-----------------------------------------------------------------------------//
 // Model
 //-----------------------------------------------------------------------------//
 
-const initialState = function(){
-  return {
+interface stateObject {
+  cpu:          boolean,
+  ram:          boolean,
+  powersupply:  boolean,
+  componentID:  string,
+  dragItem:     string,
+  position:     string
+}
+
+let initialState: any = {
     cpu:          false,
     ram:          false,
     powersupply:  false,
     componentID: '0',
-    dragItem:     null,
+    dragItem:     '',
     position:    'motherboard'
-  };
 };
 
 //-----------------------------------------------------------------------------//
 // Reducer
 //-----------------------------------------------------------------------------//
 
-function reducer (prevState=initialState(), action){
+function reducer (prevState=initialState, action:any){
 
   switch (action.type){
     case 'CHANGE_POSITION': {
